@@ -19,11 +19,17 @@
 
 <body>
 
-    <!-- Top Bar -->
     <header class="top-bar">
-        <nav class="container">
-            <!-- Nav Links on Left/Center -->
-            <div class="nav-links">
+        <nav class="container nav-mobile">
+            <!-- Left: Social Icons -->
+
+            <!-- Right: Hamburger -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Hidden Menu -->
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#stack">Stack</a>
@@ -31,19 +37,14 @@
                 <a href="#certifications">Certificates</a>
                 <a href="#contact">Contact</a>
             </div>
-
-            <!-- Socials on Right -->
-            <div class="social-links">
-                <a href="https://www.instagram.com/destroyed.xd" target="_blank" aria-label="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/shubham-balwan" target="_blank" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/shubhambalwan/" target="_blank" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="mailto:shubhambalwan803@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <div class="mobile-socials">
+                <a href="https://www.instagram.com/destroyed.xd" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/shubham-balwan" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shubhambalwan/" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </nav>
     </header>
+
 
     <main>
         <!-- Home Section -->
@@ -91,10 +92,10 @@
                     <!----------------------------------------------------------------------------------------------------------->
                     <h2>What I Work On:</h2>
                     <p>
-                        <bullet> •Web Development</bullet><br>
-                        <bullet> •Cybersecurity/Ethical Hacking</bullet><br>
-                        <bullet> •Linux & System Fundamentals</bullet><br>
-                        <bullet> •Game Development</bullet><br>
+                        <bullet> • Web Development</bullet><br>
+                        <bullet> • Cybersecurity/Ethical Hacking</bullet><br>
+                        <bullet> • Linux & System Fundamentals</bullet><br>
+                        <bullet> • Game Development</bullet><br>
                     </p>
                     <!----------------------------------------------------------------------------------------------------------->
                     <!-------------------------------------------------> <br>
@@ -102,9 +103,9 @@
                     <!----------------------------------------------------------------------------------------------------------->
                     <h2>How I Learn:</h2>
                     <p>
-                        <bullet> •Building real projects</bullet><br>
-                        <bullet> •Experimenting with tools and technologies</bullet><br>
-                        <bullet> •Improving skills through hands-on practice</bullet><br>
+                        <bullet> • Building real projects</bullet><br>
+                        <bullet> • Experimenting with tools and technologies</bullet><br>
+                        <bullet> • Improving skills through hands-on practice</bullet><br>
                     </p>
                     <!----------------------------------------------------------------------------------------------------------->
                     </p>
@@ -179,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card project-card">
+                    <!-- <div class="card project-card">
                         <div class="project-image-container">
                             <img src="images/security_tool.png" alt="Network Security Tool" class="project-image">
                         </div>
@@ -198,9 +199,9 @@
                                 <a href="#" target="_blank" class="btn btn-sm btn-primary">Live Demo <i
                                         class="fas fa-external-link-alt"></i></a>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
                 </div>
+            </div>
         </section>
 
         <!-- Certifications -->
