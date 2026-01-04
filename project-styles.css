@@ -1,0 +1,116 @@
+/* Project Cards Redesign */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 340px));
+    justify-content: start;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    padding: 0;
+    /* Reset padding for image to bleed to edges */
+    border-radius: 20px;
+    /* Soft rounded corners */
+    overflow: hidden;
+    /* Clip image */
+    display: flex;
+    flex-direction: column;
+    /* Stack image and content */
+    background: #f9f9f9;
+    /* Light background */
+    border: none;
+    /* Remove default border if any */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-image-container {
+    width: 100%;
+    height: 160px;
+    /* Fixed height related to square-ish requirement */
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    transform: scale(1.35);
+    /* Zoom in to crop mockups */
+    filter: grayscale(100%);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.4);
+    filter: grayscale(0%);
+}
+
+.project-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Fill remaining space */
+}
+
+/* Specific overrides for project card text */
+.project-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Push actions to bottom */
+}
+
+.project-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    flex: 1;
+    /* Equal width buttons */
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.project-card .btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+}
+
+.project-card .btn-primary:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.project-card .btn-outline {
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+.project-card .btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}

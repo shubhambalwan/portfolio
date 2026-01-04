@@ -1,0 +1,852 @@
+/* Page Transition Animations */
+body {
+    animation: fadeIn 0.5s ease-in;
+}
+
+body.fade-out {
+    animation: fadeOut 0.5s ease-out;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* CSS Variables for Theming */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --primary-color: #000000;
+    --secondary-color: #666666;
+    --card-bg: #ffffff;
+    --accent-color: #333333;
+    --border-radius: 8px;
+    /* Slightly sharper */
+    --transition-speed: 0.3s;
+    --section-spacing: 120px;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    /* Wider container */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.03em;
+}
+
+/* Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 25px 0;
+    border-bottom: none;
+    /* Cleaner look */
+}
+
+.top-bar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Nav Links - Center part */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Sections */
+main {
+    padding-top: 5px;
+}
+
+.section {
+    padding: var(--section-spacing) 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-align: left;
+    /* Align left per reference */
+    padding-bottom: 0;
+}
+
+.section-title::after {
+    display: none;
+    /* Remove underline */
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
+
+.hero-text-wrapper {
+    flex: 1.2;
+    text-align: left;
+}
+
+.location-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.name {
+    font-family: var(--font-serif);
+    font-size: 6rem;
+    /* Huge text */
+    margin-bottom: 10px;
+    line-height: 1;
+    color: var(--primary-color);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.role {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid #e0e0e0;
+    /* Subtle border */
+    color: var(--text-color);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-image-container {
+    width: 377px;
+    height: 378px;
+    border-radius: 24px;
+    /* Soft uniform rounded corners */
+    overflow: hidden;
+    background-color: #f0f0f0;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    top: 10px;
+    left: -10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image fills container nicely */
+    filter: grayscale(100%);
+    /* Black and white by default */
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.profile-image-container:hover .profile-image {
+    filter: grayscale(0%);
+    /* Full color on hover */
+    transform: scale(1.02);
+    /* Subtle zoom for effect */
+}
+
+/* Fallback if image fails to load or for placeholder */
+.profile-placeholder {
+    display: none;
+    /* Hide placeholder when image is present */
+}
+
+/* About Overlay Look */
+.about-text p {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    max-width: 1200px;
+}
+
+/* Stack Section - Minimal */
+.stack-category {
+    margin-bottom: 60px;
+}
+
+.stack-category h3 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 25px;
+    text-align: left;
+    transform: none;
+    left: auto;
+    display: block;
+}
+
+.stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stack-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-speed);
+}
+
+.stack-item:hover {
+    transform: translateY(-2px);
+    border-color: #ddd;
+}
+
+.stack-item i {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.stack-item span {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Certifications - List Layout */
+.cert-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.cert-item:hover {
+    background-color: #fafafa;
+}
+
+.cert-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+    color: var(--text-color);
+}
+
+.org-name {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.btn-view-cert {
+    background: none;
+    border: 1px solid var(--text-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-view-cert:hover {
+    background: var(--text-color);
+    color: #fff;
+}
+
+/* Modal Styling */
+.modal {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    width: 90%;
+    height: 90%;
+    max-width: 1000px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+#cert-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensures image fits within the modal without cropping or zooming */
+    display: block;
+}
+
+/* Mobile responsive modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        height: auto;
+        max-height: 90vh;
+    }
+
+    #cert-image {
+        object-fit: contain;
+        max-height: 85vh;
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+.close-modal {
+    color: #fff;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+iframe#cert-frame {
+    width: 100%;
+    height: 100%;
+}
+
+/* Projects - Clean Cards */
+.project-card {
+    border: none;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.project-card .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin-top: 15px;
+}
+
+.tag {
+    background: transparent;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 0.75rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* CTA Footer (The "Let's build something" box) */
+.contact-section-large {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: row;
+    /* Align horizontally */
+    align-items: center;
+    justify-content: center;
+    /* Center the whole group */
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    /* efficient for mobile */
+}
+
+#email-toggle-btn {
+    min-width: 120px;
+    height: 50px;
+    /* Fix height to prevent vertical jitter */
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Only transition width smoothly */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Hide content during resize if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    /* Ensure padding is consistent */
+}
+
+/* Footer Socials */
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    /* Center the whole group */
+}
+
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.contact-section-large h2 {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.contact-section-large p {
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+.contact-section-large .contact-buttons {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+
+.contact-section-large .btn-primary {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.contact-section-large .btn-primary:hover {
+    background: #eee;
+}
+
+.contact-section-large .btn-outline {
+    border-color: #555;
+    color: #fff;
+}
+
+.contact-section-large .btn-outline:hover {
+    border-color: #fff;
+}
+
+/* Footer - Simple Bottom */
+.footer {
+    border-top: none;
+    color: #999;
+    font-size: 0.85rem;
+    padding-bottom: 40px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .name {
+        font-size: 4rem;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        /* Text on bottom, image on top for mobile? Or std column */
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text-wrapper {
+        text-align: center;
+    }
+
+    .hero-image-wrapper {
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .location {
+        justify-content: center;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .contact-section-large h2 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide nav links on mobile for cleanliness for now */
+    }
+
+
+}
+
+/* ================================
+   CERTIFICATIONS – CARD LAYOUT
+================================ */
+
+/* Grid */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    align-items: stretch;
+}
+
+/* Card */
+.cert-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 32px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.cert-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.cert-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+/* Organization */
+.cert-card .org-name {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Header (for featured badge) */
+.cert-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Featured badge */
+.badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    background: #000;
+    color: #fff;
+}
+
+/* Skill tags */
+.cert-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.cert-tags span {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+
+    border: 1px solid #ddd;
+    color: #555;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Button (always bottom aligned) */
+.cert-card .btn-view-cert {
+    margin-top: auto;
+
+    align-self: flex-start;
+    padding: 12px 24px;
+
+    border-radius: 999px;
+    background: transparent;
+    border: 1.5px solid #111;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: all 0.25s ease;
+}
+
+/* Button hover */
+.cert-card .btn-view-cert:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* Featured card highlight */
+.cert-card.featured {
+    border-color: #111;
+}
+
+/* View More Card */
+.view-more-card {
+    text-decoration: none;
+    border: 1.5px dashed #d0d0d0;
+    border-radius: 20px;
+    background: #fafafa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease;
+}
+
+.view-more-card:hover {
+    border-color: #111;
+    background: #fff;
+    transform: translateY(-6px);
+}
+
+.view-more-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.view-more-content span {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.view-more-content h3 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.view-more-content p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Reduce gap before Certifications section */
+#certifications {
+    padding-top: 60px;
+    /* was 120px */
+}
+
+#home {
+    padding-top: 45px;
+    /* was 120px */
+}

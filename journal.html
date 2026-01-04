@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Under Construction</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #fbf7f2;
+            --text: #2b2b2b;
+            --muted: #777;
+            --accent: #c96f4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+        }
+
+        .container {
+            text-align: center;
+            padding: clamp(28px, 5vw, 48px);
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* Main heading */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.6rem, 6vw, 3.6rem);
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: clamp(1rem, 2.3vw, 1.1rem);
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* Loader */
+        .loader {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        .status {
+            font-size: clamp(0.9rem, 2.2vw, 0.95rem);
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 22px;
+        }
+
+        /* Back button */
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(201, 111, 74, 0.5);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(201, 111, 74, 0.12);
+        }
+
+        /* Short screens */
+        @media (max-height: 600px) {
+            body {
+                align-items: flex-start;
+            }
+
+            .container {
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Under&nbsp;Construction</h1>
+
+        <p>
+            This webpage is currently under development.<br>
+            Please check back soon.
+        </p>
+
+        <div class="loader">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="status" id="statusText">Building in progress</div>
+
+        <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+    </div>
+
+    <script>
+        const messages = ["Building in progress"];
+        const status = document.getElementById("statusText");
+
+        setInterval(() => {
+            status.textContent = messages[0];
+        }, 2000);
+    </script>
+
+</body>
+
+</html>
